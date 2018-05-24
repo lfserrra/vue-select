@@ -549,6 +549,8 @@
       onChange: {
         type: Function,
         default: function (val) {
+        console.log(val);
+        
           if(this.optionValue){
             this.$emit('input', val[this.optionValue])
           } else {
