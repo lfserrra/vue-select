@@ -711,6 +711,8 @@
        * @return {void}
        */
       value(val) {
+      console.log(val, 'value_watch');
+
 				this.mutableValue = val
       },
 
