@@ -549,14 +549,7 @@
       onChange: {
         type: Function,
         default: function (val) {
-        console.log(val, this.optionValue);
-        console.log(val[this.optionValue]);
-        
-          if(this.optionValue){
-            this.$emit('input', val[this.optionValue])
-          } else {
-            this.$emit('input', val)
-          }
+            this.$emit('input', this.optionValue ? val[this.optionValue] : val)
         }
       },
 
@@ -711,9 +704,7 @@
        * @return {void}
        */
       value(val) {
-      console.log(val, 'value_watch');
-
-				this.mutableValue = val
+        this.mutableValue = this.optionValue ? val[this.optionValue] : val;
       },
 
       /**
