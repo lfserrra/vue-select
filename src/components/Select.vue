@@ -508,6 +508,11 @@
         default: 'label'
       },
 
+      optionValue: {
+        type: String,
+        default: null
+      },
+
       /**
        * Callback to generate the label text. If {option}
        * is an object, returns option[this.label] by default.
@@ -544,7 +549,11 @@
       onChange: {
         type: Function,
         default: function (val) {
-          this.$emit('input', val)
+          if(this.optionValue){
+            this.$emit('input', val[this.optionValue])
+          } else {
+            this.$emit('input', val)
+          }
         }
       },
 
